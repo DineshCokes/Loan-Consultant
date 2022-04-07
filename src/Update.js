@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { alter } from "./API";
+import { updateOne } from "./Connect";
 
 export const Update=(annamalai)=>{
 
@@ -8,19 +9,22 @@ export const Update=(annamalai)=>{
     const[pos,setPos]=useState(annamalai.who)
 
     const[person,setPerson]=useState({
+        "resId":annamalai.mention.resId,
         "resName":annamalai.mention.resName,
         "resPay":annamalai.mention.resPay,
         "resArea":annamalai.mention.resArea,
         "resSkills":annamalai.mention.resSkills
     })
 
-    const gopi=()=>{
-        alter(pos,person)
-        alert("Updated")
+    const gopi=async()=>{
+        //alter(pos,person)
+        const t=await updateOne(person)
+        alert(t.data)
     }
     const dhana=()=>{
         alert("Rejected")
     }
+    
 
     const track=(manoj)=>{
         //console.log(manoj.target.value);
