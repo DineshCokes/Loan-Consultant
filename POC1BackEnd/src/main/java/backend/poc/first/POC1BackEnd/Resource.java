@@ -29,6 +29,10 @@ public class Resource {
 		return "Resource [resId=" + resId + ", resName=" + resName + ", resArea=" + resArea + ", resPay=" + resPay
 				+ ", resSkills=" + Arrays.toString(resSkills) + "]";
 	}
+	public void setResSkills(String resSkills)
+	{
+		this.resSkills=resSkills.split(",");
+	}
 
 
 	public Resource(String resName, String resArea, int resPay, String[] resSkills) {
@@ -37,6 +41,14 @@ public class Resource {
 		this.resArea = resArea;
 		this.resPay = resPay;
 		this.resSkills = resSkills;
+	}
+	
+	public Resource(String resName, String resArea, int resPay, String resSkills) {
+		super();
+		this.resName = resName;
+		this.resArea = resArea;
+		this.resPay = resPay;
+		this.resSkills = resSkills.split(",");
 	}
 
 
@@ -54,6 +66,7 @@ public class Resource {
 	public void setResSkills(String[] resSkills) {
 		this.resSkills = resSkills;
 	}
+	
 
 
 	public int getResId() {
