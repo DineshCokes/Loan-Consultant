@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.springframework.beans.factory.annotation.Value;
 @Entity
 @Table(name="profiles")
 public class Resource {
@@ -29,11 +30,7 @@ public class Resource {
 		return "Resource [resId=" + resId + ", resName=" + resName + ", resArea=" + resArea + ", resPay=" + resPay
 				+ ", resSkills=" + Arrays.toString(resSkills) + "]";
 	}
-	public void setResSkills(String resSkills)
-	{
-		this.resSkills=resSkills.split(",");
-	}
-
+	
 
 	public Resource(String resName, String resArea, int resPay, String[] resSkills) {
 		super();
@@ -43,13 +40,7 @@ public class Resource {
 		this.resSkills = resSkills;
 	}
 	
-	public Resource(String resName, String resArea, int resPay, String resSkills) {
-		super();
-		this.resName = resName;
-		this.resArea = resArea;
-		this.resPay = resPay;
-		this.resSkills = resSkills.split(",");
-	}
+	
 
 
 	public Resource() {

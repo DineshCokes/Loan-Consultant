@@ -21,3 +21,9 @@ export const gather=async()=>
         const hai=await axios.put(`${link}/update`,obj)
         return hai;
     }
+    export const erase=async(pk)=>
+    {
+        const t=await axios.delete(`${link}/del/${pk}`)
+        return t;
+
+    }

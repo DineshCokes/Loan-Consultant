@@ -34,6 +34,7 @@ export const Recruite=()=>{
     const gopi=async()=>{
         //alert("Hired "+JSON.stringify(person))
         //create(person)
+        
         const yet=await join(person)
         alert(yet.data)
         

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +33,7 @@ public class APIController
 		return service.list();
 	}
 	@GetMapping("/getting/{quiz}")
+	
 	public Optional<Resource> makeRead(@PathVariable("quiz") int quiz)
 	{
 		return service.read(quiz);
@@ -40,6 +42,11 @@ public class APIController
 	public String makeUpdate(@RequestBody Resource res)
 	{
 		return service.create(res).getResName()+" has Updated";
+	}
+	@DeleteMapping("/del/{unique}")
+	public String makeRemove(@PathVariable("unique") int unique)
+	{
+		return service.remove(unique);
 	}
 
 }
